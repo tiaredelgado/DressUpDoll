@@ -2,20 +2,21 @@ doctype html
 html
   head
     title Login
-    link(rel="stylesheet", href="/style2.css")
+    script(src="/login.js")
   body
-    main
-      h1 Login
+    h1 Login Page
 
-      form(action="/login" method="POST")
-        label(for="email") Email:
-        input(type="email" id="email" name="email" required)
+    form#loginForm
+      label(for="email") Email:
+      input(type="email", id="email", name="email", required)
+      br
+      label(for="password") Password:
+      input(type="password", id="password", name="password", required)
+      br
+      button(type="submit", id="loginBtn") Login
 
-        label(for="password") Password:
-        input(type="password" id="password" name="password" required)
+    p#loginMessage(style="color:red")
 
-        button(type="submit") Login
-
-      p
-        | Don't have an account?
-        a(href="/register") Create one here
+    // Link to the new account creation page
+    p
+      a(href="/newAccount") Don't have an account? Create one here.

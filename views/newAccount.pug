@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Create New Account
+    link(rel="stylesheet", href="/style.css")  
+
+    h1 Create New Account
+
+    form#newAccountForm(action="/createAccount", method="POST")
+      label(for="firstName") First Name:
+      input(type="text", id="firstName", name="firstName", required)
+      br
+
+      label(for="lastName") Last Name:
+      input(type="text", id="lastName", name="lastName", required)
+      br
+
+      label(for="email") Email:
+      input(type="email", id="email", name="email", required)
+      br
+
+      label(for="password") Password:
+      input(type="password", id="password", name="password", required)
+      br
+
+      button(type="submit") Create Account
+
+    p#accountMessage(style="color:red")  
