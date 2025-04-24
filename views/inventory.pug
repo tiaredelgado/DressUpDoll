@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Inventory
+    link(rel="stylesheet", href="/style2.css")
+  body
+    h1 Inventory
+
+    h2 Tops
+    table
+      thead
+        tr
+          th Image
+          th Name
+      tbody
+        each top in tops
+          tr
+            td: img(src=`/${top.ImagePath}`, alt=top.Name, width="100")
+            td= top.Name
+
+    h2 Bottoms
+    table
+      thead
+        tr
+          th Image
+          th Name
+      tbody
+        each bottom in bottoms
+          tr
+            td: img(src=`/${bottom.ImagePath}`, alt=bottom.Name, width="100")
+            td= bottom.Name
