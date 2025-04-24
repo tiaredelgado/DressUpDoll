@@ -29,3 +29,14 @@ html
           tr
             td: img(src=`/${bottom.ImagePath}`, alt=bottom.Name, width="100")
             td= bottom.Name
+    h2 Shoes
+    table
+      thead
+        tr
+          th Image
+          th Name
+      tbody
+        each shoe in shoes
+          tr
+            td: img(src=`/${shoe.ImagePath}`, alt=shoe.Name, width="100")
+            td= shoe.Name

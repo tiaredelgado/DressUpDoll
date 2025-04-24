@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('./public/db');
 const { insertItems, cleanUp } = require('./public/seed');
-const { Top, Bottom,User } = require("./public/schemas");
+const { Top, Bottom,User ,Shoe} = require("./public/schemas");
 
 app.set('view engine','pug')
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +31,8 @@ app.get("/inventory", async (req, res) => {
   try {
     const tops = await Top.find({});
     const bottoms = await Bottom.find({});
-    res.render("inventory", { tops, bottoms });
+    const shoes = await Shoe.find({});
+    res.render("inventory", { tops, bottoms,shoes });
   } catch (err) {
     console.error("Error loading inventory:", err);
     res.status(500).send("Something went wrong.");

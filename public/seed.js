@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const mongoose = require("./db");
-const { Top, Bottom } = require("./schemas");
+const { Top, Bottom,Shoe } = require("./schemas");
 
 async function insertItems() {
   // TOPS
@@ -32,6 +32,24 @@ async function insertItems() {
 
   await Bottom.insertMany(bottomItems);
   console.log("Inserted bottom items:", bottomItems.length);
+
+
+// SHOES
+const shoeFolder = path.join(__dirname, "images/shoes");
+const shoeFiles = fs.readdirSync(shoeFolder).filter(file => file.endsWith(".png"));
+
+const shoeItems = shoeFiles.map((file, index) => ({
+  ID: index + 1,
+  Name: path.parse(file).name,
+  Order: index + 1,
+  ImagePath: `images/shoes/${file}`
+}));
+
+await Shoe.insertMany(shoeItems);
+console.log("Inserted shoe items:", shoeItems.length);
+
+
+
 }
 
 // Cleanup collections on termination
@@ -39,6 +57,7 @@ async function cleanUp() {
   try {
     await Top.deleteMany({});
     await Bottom.deleteMany({});
+    await Shoe.deleteMany({});
     console.log("Collections deleted.");
   } catch (err) {
     console.error("Error during cleanup:", err);
