@@ -5,9 +5,6 @@ const mongoose = require('./public/db');
 const { insertItems, cleanUp } = require('./public/seed');
 const { Top, Bottom,User } = require("./public/schemas");
 
-
-
-
 app.set('view engine','pug')
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -71,6 +68,36 @@ app.get("/newAccount",async(req,res) =>{
 
 // /createAccount POST
 
+app.post('/createAccount', async (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+
+  if (!firstName || !lastName || !email || !password) {
+    return res.status(400).json({ success: false, message: 'All fields are required.' });
+  }
+
+  try {
+    // Check if user already exists
+    const existingUser = await User.findOne({ Email: email });
+    if (existingUser) {
+      return res.status(409).json({ success: false, message: 'Email is already registered.' });
+    }
+
+    // Create and save the new user
+    const newUser = new User({
+      First: firstName,
+      Last: lastName,
+      Email: email,
+      Password: password // 🛑 In production, you should hash the password!
+    });
+
+    await newUser.save();
+    res.json({ success: true, message: 'Account created successfully!' });
+
+  } catch (error) {
+    console.error("Error creating account:", error);
+    res.status(500).json({ success: false, message: 'Internal server error.' });
+  }
+});
 
 
 

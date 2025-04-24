@@ -40,7 +40,6 @@ const Outfit = mongoose.model("Outfit", outfitSchema);
 
 //user/owner schema
 const userSchema = new mongoose.Schema({
-  ID: Number,
   First: String,
   Last: String,
   Email: String,
