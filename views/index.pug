@@ -5,7 +5,54 @@ head
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap")
     link(rel="stylesheet",href="/style.css")
 body
-    div.container
-        h1 Dress up your doll 
-        canvas#dollCanvas(width= "900", height="600")
-    script(src="/script.js")
+    div#gameContainer
+        #leftPanel
+            div#titleRow
+                h1 Dress up your doll 
+                button#undoButton Undo
+            form#dollForm(action="/storeDoll" method="POST")
+                canvas#dollCanvas(width= "500", height="900")
+                div#formRow
+                    input#dollNameInput(type="text" name="dollName" placeholder="Name your doll...")
+                    button#storeButton(type="submit") Store in Dollhouse
+        #rightPanel 
+            h2 Closet 
+            div.closetCategory
+                h3 Tops 
+                div.closetScroll#topsScroll 
+                    div.closetItem
+                        img(src="/images/tops/shirt1.png", alt="Top 1",draggable= "True",data-type="GreenTop", data-scale="0.9")
+                    div.closetItem
+                        img(src="/images/tops/Shirt2.png", alt="Top 2",draggable= "True",data-type="LongSleeve", data-scale="1.75")
+                    div.closetItem
+                        img(src="/images/tops/Shirt3.png", alt="Top 3",draggable= "True",data-type="GreenTop", data-scale="1.6")
+                    div.closetItem
+                        img(src="/images/tops/Shirt4.png", alt="Top 4",draggable= "True",data-type="top")
+                    div.closetItem
+                        img(src="/images/tops/Shirt5.png", alt="Top 5",draggable= "True",data-type="top")
+                    div.closetItem
+                        img(src="/images/tops/Shirt6.png", alt="Top 6",draggable= "True",data-type="top")
+                    div.closetItem
+                        img(src="/images/tops/Dress1.png", alt="Dress 1",draggable= "True",data-type="Dress")
+            div.closetCategory
+                h3 Bottoms 
+                div.closetScroll#bottomsScroll
+                    div.closetItem 
+                        img(src="/images/bottoms/Bottom1.png", alt="Bottom 1",draggable= "True",data-type="skirt", data-scale="0.93")
+                    div.closetItem
+                        img(src="/images/bottoms/Bottom2.png", alt="Bottom 2",draggable= "True",data-type="bottom", data-scale="1.46")
+                    div.closetItem
+                        img(src="/images/bottoms/Bottom3.png", alt="Bottom 3",draggable= "True",data-type="GreenSkirt")
+                    div.closetItem
+                        img(src="/images/bottoms/Bottom4.png", alt="Bottom 4",draggable= "True",data-type="bottom", data-scale="1.2")
+                    div.closetItem
+                        img(src="/images/bottoms/Bottom5.png", alt="Bottom 5",draggable= "True",data-type="skirt")
+            div.closetCategory
+                h3 Shoes
+                div.closetScroll#shoesScroll
+                    div.closetItem
+                        img(src="/images/shoes/Shoe1.png", alt="Shoes 1" ,draggable= "True",data-type="shoe", data-scale="0.55")
+                    div.closetItem 
+                        img(src="/images/shoes/Shoe2.png", alt="Shoes 2",draggable= "True",data-type="shoe", data-scale="0.55")
+
+    script(src="/doll_script.js")

@@ -9,7 +9,8 @@ app.set('view engine','pug')
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 mongoose.connection.once("open", async () => {
   console.log("Connected to MongoDB.");
@@ -25,6 +26,15 @@ const PORT = 3100;
 
   app.get('/',(req,res)=>{
     res.render('index');
+});
+
+  app.post('/storeDoll', (req, res) => {
+  const dollName = req.body.dollName;
+  const dollImage = req.body.dollImage; // Base64 PNG
+  
+  console.log('Doll name:', dollName);
+
+  res.send(`Stored your doll "${dollName}" in the dollhouse!`);
 });
 
 app.get("/inventory", async (req, res) => {
