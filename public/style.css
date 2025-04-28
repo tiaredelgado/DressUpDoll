@@ -9,6 +9,32 @@ body {
   flex-direction: column; 
   align-items: center;
 }
+#navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #ffb6c1; 
+  padding: 10px 10px;
+  border-bottom: 2px solid #ff69b4;
+  font-family: 'Pacifico', cursive;
+}
+
+#navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75;
+  text-shadow: 1px 1px 2px #ff69b4;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#navbar a:hover {
+  transform: scale(1.1);
+  color: #ffe4ec;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+}
+
 
 #gameContainer {
   display: flex;
@@ -209,14 +235,7 @@ canvas:hover {
   justify-content: center;
   gap: 10px; /* space between input and button */
 }
-#leftPanel::-webkit-scrollbar, #rightPanel::-webkit-scrollbar {
-  width: 8px;
-}
 
-#leftPanel::-webkit-scrollbar-thumb , #rightPanel::-webkit-scrollbar-thumb{
-  background-color: #ffb6c1;
-  border-radius: 4px;
-}
 #dollGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -245,4 +264,20 @@ canvas:hover {
   margin-top: 8px;
   font-family: 'Pacifico', cursive;
   color: #ff69b4;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffb6c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffb6c1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff69b4;
 }

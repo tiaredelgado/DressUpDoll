@@ -178,7 +178,7 @@ function loadDollhouse() {
     .then(dolls => {
       const leftPanel = document.getElementById('leftPanel');
       leftPanel.innerHTML = `
-        <h2>Welcome to Your Dollhouse </h2>
+        <h1>Welcome to Your Dollhouse </h1>
         <div id="dollGrid"></div>
       `;
 
