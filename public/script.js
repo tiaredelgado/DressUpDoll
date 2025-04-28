@@ -128,19 +128,17 @@ if (undoButton) {
     });
 }
 dollForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Stop the default form submission
+    e.preventDefault(); 
     
-    // Turn the canvas into a base64 PNG
+    //a base64 PNG
     const dollImageData = dollCanvas.toDataURL('image/png');
   
-    // Create a hidden input to store the image data
     const hiddenInput = document.createElement('input');
     hiddenInput.type = 'hidden';
     hiddenInput.name = 'dollImage';
     hiddenInput.value = dollImageData;
     
     dollForm.appendChild(hiddenInput);
-  
-    // Now submit the form
+
     dollForm.submit();
   });

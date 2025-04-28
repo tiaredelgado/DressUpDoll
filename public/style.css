@@ -6,7 +6,7 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column; 
   align-items: center;
 }
 
@@ -16,9 +16,9 @@ body {
   height: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  overflow: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  overflow: auto;
 }
 
 #leftPanel {
@@ -26,15 +26,16 @@ body {
   background-color: #fcc1d5;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+  align-items: center; 
   padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
 }
 
 #rightPanel {
   flex: 2; /* 2 parts */
   background-color:  #ff69b4;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,13 +44,13 @@ body {
 
 h1 {
   color: #ff69b4;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 2rem;
   text-shadow: 1px 1px 2px white;
 }
 h2 {
-  color: #ffdcdc; /* hot pink */
-  margin-bottom: 20px;
+  color: #ffdcdc; 
+  margin-bottom: 10px;
   font-size: 2rem;
   text-shadow: 1px 1px 2px rgb(65, 65, 65);
 }
@@ -76,7 +77,7 @@ canvas:hover {
 }
 .closetCategory {
   width: 90%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .closetCategory h3 {
@@ -156,20 +157,14 @@ canvas:hover {
   justify-content: center;
   width: 100%;
   gap: 10px;
-  margin-top: 10px;
+  margin-bottom: 10px;
   position: relative;
-}
-
-#titleRow h2 {
-  margin: 0 auto;
-  text-align: center;
 }
 #dollForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+  flex-shrink: 0;
 }
 
 #dollNameInput {
@@ -210,4 +205,12 @@ canvas:hover {
   align-items: center;
   justify-content: center;
   gap: 10px; /* space between input and button */
+}
+#leftPanel::-webkit-scrollbar, #rightPanel::-webkit-scrollbar {
+  width: 8px;
+}
+
+#leftPanel::-webkit-scrollbar-thumb , #rightPanel::-webkit-scrollbar-thumb{
+  background-color: #ffb6c1;
+  border-radius: 4px;
 }
