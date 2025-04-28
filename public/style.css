@@ -130,3 +130,21 @@ canvas:hover {
   object-fit: contain;
   border-radius: 6px;
 }
+#undoButton {
+  background-color: #ffb6c1; /* soft pink */
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#undoButton:hover {
+  background-color: #ff69b4; /* brighter pink on hover */
+  transform: scale(1.05);
+}
