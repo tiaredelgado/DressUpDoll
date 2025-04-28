@@ -64,7 +64,7 @@ canvas {
   width: 100%;
   height: auto;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 canvas:hover {
   transform: scale(1.02);
@@ -137,14 +137,77 @@ canvas:hover {
   font-size: 1.2rem;
   border: none;
   border-radius: 12px;
-  padding: 10px 20px;
+  padding: 8px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin-top: 15px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-left: 50px;
+  white-space: nowrap;
 }
 
 #undoButton:hover {
   background-color: #ff69b4; /* brighter pink on hover */
   transform: scale(1.05);
+}
+#titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+#titleRow h2 {
+  margin: 0 auto;
+  text-align: center;
+}
+#dollForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#dollNameInput {
+  font-family: 'Pacifico', cursive;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  background-color: #ffe4ec;
+  color: #ff69b4;
+  width: 80%;
+  text-align: center;
+}
+
+#dollNameInput::placeholder {
+  color: #ffb6c1;
+  opacity: 0.7;
+}
+
+#storeButton {
+  background-color: #ffb6c1;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#storeButton:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05);
+}
+#formRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between input and button */
 }

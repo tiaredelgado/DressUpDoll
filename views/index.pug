@@ -7,9 +7,14 @@ head
 body
     div#gameContainer
         div#leftPanel
-            h1 Dress up your doll 
-            canvas#dollCanvas(width= "500", height="900")
-            button#undoButton Undo
+            div#titleRow
+                h1 Dress up your doll 
+                button#undoButton Undo
+            form#dollForm(action="/storeDoll" method="POST")
+                canvas#dollCanvas(width= "500", height="900")
+                div#formRow
+                    input#dollNameInput(type="text" name="dollName" placeholder="Name your doll...")
+                    button#storeButton(type="submit") Store in Dollhouse
         #rightPanel 
             h2 Closet 
             div.closetCategory

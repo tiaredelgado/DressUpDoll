@@ -1,5 +1,7 @@
 const dollCanvas = document.getElementById('dollCanvas');
 const dollCtx = dollCanvas.getContext('2d');
+const dollForm = document.getElementById('dollForm');
+const dollNameInput = document.getElementById('dollNameInput');
 let draggedImage = null;
 let draggedType = null;
 let draggedScale = 1;
@@ -125,3 +127,20 @@ if (undoButton) {
         }
     });
 }
+dollForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop the default form submission
+    
+    // Turn the canvas into a base64 PNG
+    const dollImageData = dollCanvas.toDataURL('image/png');
+  
+    // Create a hidden input to store the image data
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'dollImage';
+    hiddenInput.value = dollImageData;
+    
+    dollForm.appendChild(hiddenInput);
+  
+    // Now submit the form
+    dollForm.submit();
+  });
