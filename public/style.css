@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #eb4d8c; /* light pink */
+  background-color: #eb4d8c; 
   font-family: 'Pacifico', cursive;
   height: 100vh;
   width: 100vw;
@@ -131,7 +131,7 @@ canvas:hover {
   object-fit: contain;
   border-radius: 6px;
 }
-#undoButton {
+#undoButton,#viewDollhouseButton {
   background-color: #ffb6c1; /* soft pink */
   color: white;
   font-family: 'Pacifico', cursive;
@@ -143,12 +143,15 @@ canvas:hover {
   cursor: pointer;
   margin-top: 15px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-left: 50px;
+  margin-left: 20px;
   white-space: nowrap;
 }
-
-#undoButton:hover {
-  background-color: #ff69b4; /* brighter pink on hover */
+#undoButton:hover{
+  background-color: #ff69b4; 
+  transform: scale(1.05);
+}
+#viewDollhouseButton:hover {
+  background-color: #eb4d8c;
   transform: scale(1.05);
 }
 #titleRow {

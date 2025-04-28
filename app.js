@@ -22,11 +22,11 @@ app.post('/storeDoll', (req, res) => {
     image: dollImage
   });
 
-  res.json({ success: true }); // Respond success
+  res.json({ success: true }); 
 });
 
 app.get('/dollhouse', (req, res) => {
-  res.json(dollhouse); // Send back all dolls in JSON
+  res.json(dollhouse); 
 });
 
 const PORT = 3100;
