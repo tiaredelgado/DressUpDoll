@@ -2,6 +2,7 @@ const dollCanvas = document.getElementById('dollCanvas');
 const dollCtx = dollCanvas.getContext('2d');
 const dollForm = document.getElementById('dollForm');
 const dollNameInput = document.getElementById('dollNameInput');
+const viewDollhouseButton = document.getElementById('viewDollhouseButton');
 let draggedImage = null;
 let draggedType = null;
 let draggedScale = 1;
@@ -71,7 +72,6 @@ dollCanvas.addEventListener('drop', (e) => {
         const aspectRatio = draggedImage.width / draggedImage.height;
         const desiredHeight = desiredWidth / aspectRatio;
 
-        // Save the clothing item into the placedClothes array
         placedClothes.push({
             imgSrc: draggedImage.src,
             x: snapX - desiredWidth/2,
@@ -80,7 +80,6 @@ dollCanvas.addEventListener('drop', (e) => {
             height: desiredHeight
         });
 
-        // Redraw everything after adding new clothing
         drawEverything();
     }
 });
@@ -128,17 +127,54 @@ if (undoButton) {
     });
 }
 dollForm.addEventListener('submit', (e) => {
-    e.preventDefault(); 
-    
-    //a base64 PNG
-    const dollImageData = dollCanvas.toDataURL('image/png');
+    e.preventDefault();
   
-    const hiddenInput = document.createElement('input');
-    hiddenInput.type = 'hidden';
-    hiddenInput.name = 'dollImage';
-    hiddenInput.value = dollImageData;
-    
-    dollForm.appendChild(hiddenInput);
+    const dollImageData = dollCanvas.toDataURL('image/png');
+    const dollName = dollNameInput.value;
+  
+    fetch('/storeDoll', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        dollName: dollName,
+        dollImage: dollImageData
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        loadDollhouse(); 
+      }
+    })
+    .catch(err => console.error('Error saving doll:', err));
+  });
 
-    dollForm.submit();
+  function loadDollhouse() {
+    fetch('/dollhouse')
+      .then(response => response.json())
+      .then(dolls => {
+        const leftPanel = document.getElementById('leftPanel');
+        leftPanel.innerHTML = `
+          <h2>Welcome to Your Dollhouse </h2>
+          <div id="dollGrid"></div>
+        `;
+  
+        const dollGrid = document.getElementById('dollGrid');
+  
+        dolls.forEach(doll => {
+          const dollCard = document.createElement('div');
+          dollCard.classList.add('dollCard');
+          dollCard.innerHTML = `
+            <img src="${doll.image}" alt="${doll.name}">
+            <p>${doll.name}</p>
+          `;
+          dollGrid.appendChild(dollCard);
+        });
+      })
+      .catch(err => console.error('Error loading dollhouse:', err));
+  }
+  viewDollhouseButton.addEventListener('click', () => {
+    loadDollhouse();
   });

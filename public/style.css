@@ -214,3 +214,32 @@ canvas:hover {
   background-color: #ffb6c1;
   border-radius: 4px;
 }
+#dollGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.dollCard {
+  background-color: #ffe4ec;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dollCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.dollCard p {
+  margin-top: 8px;
+  font-family: 'Pacifico', cursive;
+  color: #ff69b4;
+}
