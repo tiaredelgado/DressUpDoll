@@ -9,7 +9,7 @@ app.set('view engine','pug')
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
+///app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 mongoose.connection.once("open", async () => {
