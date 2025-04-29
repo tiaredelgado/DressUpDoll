@@ -22,19 +22,25 @@ const PORT = 3100;
     console.log(`Server is running at http://localhost:${PORT}`);
   });
 
+  let dollhouse = [];
 
 
   app.get('/',(req,res)=>{
     res.render('index');
 });
 
-  app.post('/storeDoll', (req, res) => {
-  const dollName = req.body.dollName;
-  const dollImage = req.body.dollImage; // Base64 PNG
-  
-  console.log('Doll name:', dollName);
+app.post('/storeDoll', (req, res) => {
+  const { dollName, dollImage } = req.body;
 
-  res.send(`Stored your doll "${dollName}" in the dollhouse!`);
+  dollhouse.push({
+    name: dollName,
+    image: dollImage
+  });
+
+  res.json({ success: true }); 
+});
+app.get('/dollhouse', (req, res) => {
+  res.json(dollhouse); 
 });
 
 app.get("/inventory", async (req, res) => {

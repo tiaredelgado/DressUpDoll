@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #eb4d8c; /* light pink */
+  background-color: #eb4d8c; 
   font-family: 'Pacifico', cursive;
   height: 100vh;
   width: 100vw;
@@ -9,6 +9,32 @@ body {
   flex-direction: column; 
   align-items: center;
 }
+#navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #ffb6c1; 
+  padding: 10px 10px;
+  border-bottom: 2px solid #ff69b4;
+  font-family: 'Pacifico', cursive;
+}
+
+#navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75;
+  text-shadow: 1px 1px 2px #ff69b4;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#navbar a:hover {
+  transform: scale(1.1);
+  color: #ffe4ec;
+  text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+}
+
 
 #gameContainer {
   display: flex;
@@ -131,7 +157,7 @@ canvas:hover {
   object-fit: contain;
   border-radius: 6px;
 }
-#undoButton {
+#undoButton,#viewDollhouseButton {
   background-color: #ffb6c1; /* soft pink */
   color: white;
   font-family: 'Pacifico', cursive;
@@ -143,12 +169,15 @@ canvas:hover {
   cursor: pointer;
   margin-top: 15px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-left: 50px;
+  margin-left: 20px;
   white-space: nowrap;
 }
-
-#undoButton:hover {
-  background-color: #ff69b4; /* brighter pink on hover */
+#undoButton:hover{
+  background-color: #ff69b4; 
+  transform: scale(1.05);
+}
+#viewDollhouseButton:hover {
+  background-color: #eb4d8c;
   transform: scale(1.05);
 }
 #titleRow {
@@ -206,11 +235,49 @@ canvas:hover {
   justify-content: center;
   gap: 10px; /* space between input and button */
 }
-#leftPanel::-webkit-scrollbar, #rightPanel::-webkit-scrollbar {
+
+#dollGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.dollCard {
+  background-color: #ffe4ec;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dollCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.dollCard p {
+  margin-top: 8px;
+  font-family: 'Pacifico', cursive;
+  color: #ff69b4;
+}
+::-webkit-scrollbar {
   width: 8px;
 }
 
-#leftPanel::-webkit-scrollbar-thumb , #rightPanel::-webkit-scrollbar-thumb{
-  background-color: #ffb6c1;
-  border-radius: 4px;
+::-webkit-scrollbar-track {
+  background: #ffb6c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffb6c1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff69b4;
 }
