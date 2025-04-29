@@ -1,17 +1,18 @@
 doctype html
 html
-nav#navbar
-  div
-    a(href="/") DressUp Doll
-  div
-    a(href="/newAccount") Create Account
-  div
-    a(href="/login") Login
   head
     title Login
     link(rel="stylesheet", href="/style.css")
     script(src="/login.js")
   body
+    nav#navbar
+      div
+        a(href="/") DressUp Doll
+      div
+        a(href="/newAccount") Create Account
+      div
+        a(href="/login") Login
+
     h1 Login Page
 
     form#loginForm
@@ -25,6 +26,5 @@ nav#navbar
 
     p#loginMessage(style="color:red")
 
-    // Link to the new account creation page
     p
       a(href="/newAccount") Don't have an account? Create one here.

@@ -1,18 +1,20 @@
 doctype html 
-html 
+html
 nav#navbar
-  div
+    div
     a(href="/") DressUp Doll
-  div
-    a(href="/newAccount") Create Account
-  div
-    a(href="/login") Login
+    if user
+        div
+        a(href="/logout") Logout
+    else
+        div
+        a(href="/newAccount") Create Account
+        a(href="/login") Login
 head
     title Dress up Darling
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap")
     link(rel="stylesheet",href="/style.css")
 body
-        
     div#gameContainer
         #leftPanel
             div#titleRow
@@ -25,6 +27,7 @@ body
                     button#storeButton(type="submit") Store in Dollhouse
         #rightPanel 
             h2 Closet 
+            button#viewDollhouseButton View Dollhouse
             div.closetCategory
                 h3 Tops 
                 div.closetScroll#topsScroll 

@@ -188,8 +188,8 @@ function loadDollhouse() {
         const dollCard = document.createElement('div');
         dollCard.classList.add('dollCard');
         dollCard.innerHTML = `
-          <img src="${doll.image}" alt="${doll.name}">
-          <p>${doll.name}</p>
+          <img src="${doll.dollImage}" alt="${doll.dollName}">
+          <p>${doll.dollName}</p>
         `;
         dollGrid.appendChild(dollCard);
       });

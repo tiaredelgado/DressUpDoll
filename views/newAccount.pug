@@ -1,18 +1,17 @@
 doctype html
 html
-nav#navbar
-  div
-    a(href="/") DressUp Doll
-  div
-    a(href="/newAccount") Create Account
-  div
-    a(href="/login") Login
   head
     title Create Account
     link(rel="stylesheet", href="/style.css")
-    script(src="./account.js")
+    script(src="/account.js") // <-- also notice the slash (corrected path)
   body
-
+    nav#navbar
+      div
+        a(href="/") DressUp Doll
+      div
+        a(href="/newAccount") Create Account
+      div
+        a(href="/login") Login
 
     h1 Create Your Account
 

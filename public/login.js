@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const response = JSON.parse(xhr.responseText);
                     if (response.success) {
                         // Redirect on success
-                        window.location.href = "/inventory";
+                        window.location.href = "/";
                     } else {
                         // Show error message
                         loginMessage.textContent = response.message;

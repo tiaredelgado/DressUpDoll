@@ -24,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await res.json();
         message.textContent = data.message;
         message.style.color = data.success ? 'green' : 'red';
+
+        if(data.success)
+          setTimeout(()=>{
+            window.location.href = '/';
+          },1500); //delayed to see message
+
+
       } catch (err) {
         message.textContent = 'Something went wrong.';
         message.style.color = 'red';
