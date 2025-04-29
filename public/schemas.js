@@ -30,9 +30,9 @@ const Shoe = mongoose.model("Shoe", shoeSchema);
 // Outfit schema
 const outfitSchema = new mongoose.Schema({
   ID: Number,
-  Owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },  // Reference to the User model
-  dollName: String,  // Store the doll's name
-  dollImage: String,  // Store the doll's image (base64 data URL)
+  Owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },  
+  dollName: String,  
+  dollImage: String,  
 });
 
 const Outfit = mongoose.model("Outfit", outfitSchema);

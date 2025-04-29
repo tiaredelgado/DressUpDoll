@@ -239,7 +239,7 @@ app.post('/createAccount', async (req, res) => {
       First: firstName,
       Last: lastName,
       Email: email,
-      Password: password // 🛑 In production, you should hash the password!
+      Password: password 
     });
 
     await newUser.save();
@@ -253,7 +253,6 @@ app.post('/createAccount', async (req, res) => {
     };
     res.json({ success: true, message: 'Account created successfully!' });
 
-    // 👇 If there are any dolls locally stored, save them to the database
     if (dollhouse.length > 0) {
       const dollsToSave = dollhouse.map(doll => ({
         Owner: newUser._id,
