@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(session({
-  secret: 'yourSecretKey', // 🔒 Change this to a strong secret in production
+  secret: 'yourSecretKey', 
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // secure: true only if using HTTPS
+  cookie: { secure: false } 
 }));
 
 
@@ -40,16 +40,6 @@ const PORT = 3100;
   });
   
 
-/*app.post('/storeDoll', (req, res) => {
-  const { dollName, dollImage } = req.body;
-
-  dollhouse.push({
-    name: dollName,
-    image: dollImage
-  });
-
-  res.json({ success: true }); 
-});*/
 
 app.post('/storeDoll', (req, res) => {
   const { dollName, dollImage } = req.body;
