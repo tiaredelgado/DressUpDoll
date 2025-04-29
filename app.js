@@ -135,7 +135,7 @@ app.post("/login", async (req, res) => {
       if (dollhouse.length > 0) {
         const dollsToSave = dollhouse.map(doll => ({
           Owner: user._id,
-          dollName: doll.dollNamename,  // local dollhouse uses 'name'
+          dollName: doll.dollName,  // local dollhouse uses 'name'
           dollImage: doll.dollImage
         }));
 

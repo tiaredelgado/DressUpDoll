@@ -206,7 +206,7 @@ function loadDressUp() {
       <button id="undoButton" type="button">Undo</button>
     </div>
     <form id="dollForm" action="/storeDoll" method="POST">
-      <canvas id="dollCanvas" width="450" height="675"></canvas>
+      <canvas id="dollCanvas" width="500" height="900"></canvas>
       <div id="formRow">
         <input id="dollNameInput" type="text" name="dollName" placeholder="Name your doll...">
         <button id="storeButton" type="submit">Store in Dollhouse</button>
